@@ -1,0 +1,26 @@
+.main {
+  width: 70%;
+  margin: 120px auto;
+}
+.contenu {
+  display: flex;
+  justify-content: space-evenly;
+}
+.contenu img {
+  position: relative;
+  width: 450px;
+  height: 600px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 5px rgb(238, 16, 16);
+}
+.col-rigth {
+  text-align: center;
+}
+.col-rigth h2 {
+  font-size: 30px;
+  margin-bottom: 60px;
+}
+.col-rigth p {
+  color: azure;
+  font-size: 20px;
+}

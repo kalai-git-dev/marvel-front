@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import "./characters.css";
-function Characters() {
+import CardCharacters from "../../componants/card/CardCharacters";
+
+function Characters({ characters, setCharacters }) {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/characters");
+        const response = await axios.get(
+          "https://marvel-api-amine.herokuapp.com/characters"
+        );
         // console.log(response.data);
         setData(response.data);
         setIsLoading(false);
@@ -29,26 +32,15 @@ function Characters() {
         <div className="characters">
           <h1> DISCOVER OUR CHARACTERS</h1>
           <div className="container">
+            {/* data.data.results */}
             {data.data.results.map((character) => {
               //   console.log(character);
               return (
-                <Link
-                  to={`/character/${character.id}`}
-                  className="character"
-                  key={character.id}
-                >
-                  <div className="bloc-img">
-                    <img
-                      className="image-character"
-                      src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-                      alt={character.name}
-                    />
-                    {character.description ? (
-                      <p> {character.description}</p>
-                    ) : null}
-                  </div>
-                  <p>{character.name}</p>
-                </Link>
+                <CardCharacters
+                  character={character}
+                  characters={characters}
+                  setCharacters={setCharacters}
+                />
               );
             })}
           </div>
@@ -59,16 +51,3 @@ function Characters() {
 }
 
 export default Characters;
-// <div>
-// {isLoading ? (
-//     <p>en chargement.....</p>
-//   ) : (
-//     <div>
-// {data.data.results.map((character) => {
-
-// return
-// })
-//     </div>
-
-//   )
-// </div>

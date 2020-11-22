@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
+import CardComics from "../../componants/card/CardComics";
 
 function Comics() {
   const [data, setData] = useState({});
@@ -8,7 +8,9 @@ function Comics() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/comics");
+        const response = await axios.get(
+          "https://marvel-api-amine.herokuapp.com/comics"
+        );
         // console.log(response.data.data);
         setData(response.data.data);
         setIsLoading(false);
@@ -23,24 +25,14 @@ function Comics() {
       {isLoading ? (
         <p> en chargement....</p>
       ) : (
-        <div>
-          <div>
-            <h1> DISCOVER OUR COMICS</h1>
+        <div className="characters">
+          <h1> DISCOVER OUR COMICS</h1>
+
+          <div className="container">
+            {data.results.map((result) => {
+              return <CardComics result={result} />;
+            })}
           </div>
-          {data.results.map((result) => {
-            return (
-              <Link to={`/comic/${result.id}`} key={result.id}>
-                <div>
-                  <img
-                    src={`${result.thumbnail.path}.${result.thumbnail.extension}`}
-                    alt={result.name}
-                  />
-                  <p>{result.description ? result.description : null}</p>
-                </div>
-                <h2>{result.title}</h2>
-              </Link>
-            );
-          })}
         </div>
       )}
     </div>
