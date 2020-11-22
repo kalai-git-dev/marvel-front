@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./characters.css";
 import CardCharacters from "../../componants/card/CardCharacters";
+import Loader from "../../componants/loader/Loader";
 
 function Characters({ characters, setCharacters }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -27,7 +28,9 @@ function Characters({ characters, setCharacters }) {
   return (
     <div>
       {isLoading ? (
-        <p>chargemnt</p>
+        <div>
+          <Loader />
+        </div>
       ) : (
         <div className="characters">
           <h1> DISCOVER OUR CHARACTERS</h1>

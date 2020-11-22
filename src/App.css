@@ -34,3 +34,14 @@ body {
   font-size: 25px;
   color: black;
 }
+
+/* loader */
+.loader {
+  position: relative;
+}
+.loader img {
+  width: 300px;
+  position: absolute;
+  top: 220px;
+  right: 700px;
+}

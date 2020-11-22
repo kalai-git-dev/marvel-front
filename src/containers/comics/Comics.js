@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import CardComics from "../../componants/card/CardComics";
+import Loader from "../../componants/loader/Loader";
 
 function Comics() {
   const [data, setData] = useState({});
@@ -23,7 +24,7 @@ function Comics() {
   return (
     <div>
       {isLoading ? (
-        <p> en chargement....</p>
+        <Loader />
       ) : (
         <div className="characters">
           <h1> DISCOVER OUR COMICS</h1>

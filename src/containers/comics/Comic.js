@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./comics.css";
+import Loader from "../../componants/loader/Loader";
 
 function Comic() {
   const { id } = useParams();
@@ -30,7 +31,7 @@ function Comic() {
   return (
     <div>
       {isLoading ? (
-        <p> chargement en cours ....</p>
+        <Loader />
       ) : (
         <div className="main">
           {data.results.map((character) => {

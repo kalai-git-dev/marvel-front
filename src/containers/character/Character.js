@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./character.css";
 import { useParams } from "react-router-dom";
+import Loader from "../../componants/loader/Loader";
 
 function Character() {
   const { id } = useParams();
@@ -32,7 +33,7 @@ function Character() {
     <div>
       <div>
         {isLoading ? (
-          <p> chargement</p>
+          <Loader />
         ) : (
           <div className="main">
             {data.results.map((item) => {
