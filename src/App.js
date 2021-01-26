@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./componants/header/Header";
 import Characters from "./containers/characters/Characters";
+import { useState } from "react";
 import Character from "./containers/character/Character";
 import Comics from "./containers/comics/Comics";
 import Home from "./containers/home/Home";
@@ -11,7 +12,6 @@ import Signup from "./containers/signup/Signup";
 // ---------font-awsome-----------
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
 library.add(faHeart);
 
 //  -------- les etats------------

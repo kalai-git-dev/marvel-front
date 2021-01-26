@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./cardCharacters.css";
 
 function CardComics({ result }) {
   return (
@@ -13,7 +14,9 @@ function CardComics({ result }) {
             alt={result.name}
           />
           <div>
-            {result.description ? <p>{result.description} </p> : null}
+            {result.description ? (
+              <p className="description">{result.description} </p>
+            ) : null}
 
             <h2 className="title">{result.title}</h2>
           </div>

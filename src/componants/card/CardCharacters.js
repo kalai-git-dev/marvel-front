@@ -18,9 +18,7 @@ function cardCharacters({ character, characters, setCharacters }) {
             alt={character.name}
           />
           <div>
-            {character.description ? (
-              <p classNmae="description"> {character.description}</p>
-            ) : null}
+            {character.description ? <p> {character.description}</p> : null}
             <h2 className="title">{character.name}</h2>
           </div>
         </div>
@@ -44,7 +42,7 @@ function cardCharacters({ character, characters, setCharacters }) {
                   />
                   <div>
                     {character.description ? (
-                      <p classNmae="description"> {character.description}</p>
+                      <p className="description"> {character.description}</p>
                     ) : null}
                     <h2 className="title">{character.name}</h2>
                   </div>

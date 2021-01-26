@@ -26,7 +26,7 @@ function Home() {
           Studios de Burbank.
         </p>
         <Link to="/characters" className="icon-rigth">
-          <i class="fas fa-arrow-circle-right"></i>
+          <i className="fas fa-arrow-circle-right"></i>
         </Link>
       </div>
     </div>

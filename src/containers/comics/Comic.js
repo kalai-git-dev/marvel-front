@@ -26,7 +26,7 @@ function Comic() {
       // console.log(dataCharacters);
     };
     fetchData();
-  }, []);
+  }, [id]);
 
   return (
     <div>
@@ -62,7 +62,7 @@ function Comic() {
                       <p>
                         {price.price === 0
                           ? null
-                          : `Price print : ${price.price}`}{" "}
+                          : `Price print : ${price.price}`}
                       </p>
                     );
                   })}

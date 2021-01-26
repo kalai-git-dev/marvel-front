@@ -5,3 +5,49 @@
 .col-3 img {
   width: 400px;
 }
+.pagination {
+  margin: 25px auto;
+  display: flex;
+  list-style: none;
+  outline: none;
+}
+.pagination > .active > a {
+  background-color: #f5f50a;
+  border-color: #f70303;
+  color: #fff;
+  opacity: 1;
+}
+.pagination > li > a {
+  border: 3px solid #f50404;
+  padding: 5px 10px;
+  outline: none;
+  cursor: pointer;
+  margin-right: 3px;
+  border-radius: 50%;
+  transition: 0.4s ease-in-out;
+  opacity: 0.7;
+}
+.pagination > li > a:hover {
+  background-color: rgb(235, 8, 8);
+  opacity: 1;
+}
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  background-color: #f50b03;
+  border-color: #f80404;
+  outline: none;
+}
+.pagination > li > a,
+.pagination > li > span {
+  color: #fcfdfd;
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span,
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+  border-radius: unset;
+}
