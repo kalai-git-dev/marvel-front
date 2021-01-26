@@ -6,7 +6,7 @@ import Loader from "../../componants/loader/Loader";
 
 import ReactPaginate from "react-paginate";
 
-function Characters({ characters, setCharacters }) {
+function Characters({ characters, setCharacters, search }) {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
   const [offset, setOffset] = useState(0);
@@ -16,12 +16,28 @@ function Characters({ characters, setCharacters }) {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        "https://marvel-api-amine.herokuapp.com/characters"
+        `https://marvel-api-amine.herokuapp.com/characters`
       );
-      // console.log(response.data);
       const data = response.data.data.results;
+      setCharacters(data);
+      // if (search) {
+      //   const filtersItems = characters.filter((item) => {
+      //     return item.name.toLowerCase().includes(search.toLowerCase());
+      //   });
+      //   console.log(filtersItems);
+      //   filtersItems.map((character) => {
+      //     <CardCharacters
+      //       key={character.id}
+      //       character={character}
+      //       characters={characters}
+      //       setCharacters={setCharacters}
+      //     />;
+      //   });
+      // }
+      // console.log(response.data);
       const slice = data.slice(offset, offset + perPage);
-      console.log(slice);
+      // console.log(slice);
+
       const postData = slice.map((character) => (
         <CardCharacters
           key={character.id}
@@ -31,6 +47,7 @@ function Characters({ characters, setCharacters }) {
         />
       ));
       setData(postData);
+
       setPageCount(Math.ceil(data.length / perPage));
       setIsLoading(false);
     } catch (error) {
@@ -40,12 +57,13 @@ function Characters({ characters, setCharacters }) {
 
   useEffect(() => {
     fetchData();
-  }, [offset]);
+  }, [offset, search]);
 
   const handlePageClick = (e) => {
     const selectedPage = e.selected;
     setOffset(selectedPage * perPage);
   };
+
   return (
     <div>
       {isLoading ? (

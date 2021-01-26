@@ -21,15 +21,12 @@ function App() {
   const [search, setSearch] = useState("");
   // const [comics, setComics] = useState([]);
 
-  // const filtersProducts = characters.filter((item) => {
-  //   return item.name.toLowerCase().includes(search.toLowerCase());
-  // });
   return (
     <Router>
       <Header
         search={search}
         setSearch={setSearch}
-        // filtersProducts={filtersProducts}
+        // filtersItems={filtersItems}
       />
       <Switch>
         <Route path="/character/:id">
@@ -45,7 +42,11 @@ function App() {
           <Comic />
         </Route>
         <Route path="/characters">
-          <Characters characters={characters} setCharacters={setCharacters} />
+          <Characters
+            characters={characters}
+            setCharacters={setCharacters}
+            search={search}
+          />
         </Route>
         <Route path="/favoris">
           <Favoris characters={characters} />
